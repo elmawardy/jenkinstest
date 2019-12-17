@@ -17,7 +17,7 @@ pipeline {
   	stage('deploy'){
 	   steps {
 		echo 'Deploying ..'
-                sh  'sshpass -p ${ServerPW} scp jenkinsfile root@172.19.2.100:/home/'
+                sh  'sshpass -p ${ServerPW} scp jenkinstest root@172.19.2.100:/home/'
                 sh  'sshpass -p ${ServerPW} ssh root@172.19.2.100 /home/jenkinstest &'
 	   }
 	}
