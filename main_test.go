@@ -13,7 +13,6 @@ func TestAdd(t *testing.T) {
 
 func Add(a int,b int) int {
   z := a+b
-  z = 1
   return z
 }
 
