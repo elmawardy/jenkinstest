@@ -14,7 +14,7 @@ pipeline {
 	        sh 'go test'
 	   }
 	}
-	state ('remove stale data'){
+	stage ('remove stale data'){
 	   steps {		
                 sh  'sshpass -p ${ServerPW} killall jenkinstest'
 		catchError{
