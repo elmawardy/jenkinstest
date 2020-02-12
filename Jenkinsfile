@@ -17,7 +17,7 @@ pipeline {
 	stage ('remove stale data'){
 	   steps {		
                 sh  'sshpass -p ${ServerPW} killall jenkinstest'
-		catchError{
+		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                     sh  'sshpass -p ${ServerPW} yes | rm /home/jenkinstest' 
 		}
 	   }
