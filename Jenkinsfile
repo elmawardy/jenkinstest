@@ -6,11 +6,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
+		cd /home/test
                 sh 'go build'
             }
         }
 	stage('test'){
 	   steps {
+		cd /home/test
 	        sh 'go test'
 	   }
 	}
