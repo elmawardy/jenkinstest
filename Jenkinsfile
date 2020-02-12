@@ -18,8 +18,11 @@ pipeline {
 	   steps {		
 		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                     sh  'sshpass -p ${ServerPW} killall jenkinstest'
+		}
+		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                     sh  'sshpass -p ${ServerPW} yes | rm /home/jenkinstest' 
 		}
+
 	   }
 	}
   	stage('deploy'){
