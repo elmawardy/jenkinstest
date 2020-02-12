@@ -14,6 +14,14 @@ pipeline {
 	        sh 'go test'
 	   }
 	}
+	state ('remove stale data'){
+	   steps {		
+                sh  'sshpass -p ${ServerPW} killall jenkinstest'
+		catchError{
+                    sh  'sshpass -p ${ServerPW} yes | rm /home/jenkinstest' 
+		}
+	   }
+	}
   	stage('deploy'){
 	   steps {
 		echo 'Deploying ..'
