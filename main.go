@@ -16,5 +16,5 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi I'm version 3")
+    fmt.Fprintf(w, "Hi I'm version 4")
 }
