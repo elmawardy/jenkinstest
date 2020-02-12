@@ -20,7 +20,7 @@ pipeline {
                     sh  'sshpass -p ${ServerPW} ssh root@172.19.2.121 killall jenkinstest'
 		}
 		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                    sh  'sshpass -p ${ServerPW} ssh root@172.19.2.121 yes | rm /home/jenkinstest' 
+                    sh  'sshpass -p ${ServerPW} ssh root@172.19.2.121 "yes | rm /home/jenkinstest"' 
 		}
 
 	   }
